@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.appcache">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BudgetMe</title>
+
+	<!-- CSS --->
+	<link rel="stylesheet" href="css/style.css" />
+	<!-- Chart.js Plugin -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<!-- Chart.js Annotation Plugin -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/1.1.0/chartjs-plugin-annotation.min.js" integrity="sha512-uxcl+YXF0LbFyZFEb6HHmxl1NEI4X/5rjojm/13M1CBXBDj8wkmM99cKADkmtuky28pC/EpNTDHOEb/c3nDZsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+	
+<body>
+	<div class="chartMenu">
+	  <p align="center">BudgetMe</p>
+	</div>
+	<div class="chartCard">
+		<div class="chartBox">
+			<canvas id="myChart"></canvas>
+			<br />
+			<form id="expenses">
+				<h3 align="center">Enter Monthly Income and Expenses Below</h3>
+				<br />
+				<label for="income">Monthly Income:</label>
+				<input id="income" type="number" placeholder="In US Dollars"> 
+				<br />
+				<label for="house">Housing:</label>
+				<input id="house" type="number" placeholder="In US Dollars">
+				<br />
+				<label for="food">Food:</label>
+				<input id="food" type="number" placeholder="In US Dollars">
+				<br />
+				<label for="trans">Transportation:</label>
+				<input id="trans" type="number" placeholder="In US Dollars">
+				<br />
+				<label for="ent">Entertainment:</label>
+				<input id="ent" type="number" placeholder="In US Dollars">
+			</form>
+				<br />
+				<button onClick="updateChart(income, house, food, trans, ent)">Submit</button>
+				<button onClick="clearData(house, food, trans, ent)">Delete</button>
+		</div>
+	</div>
+
+	<!-- Custom JavaScript -->
+	<script type="text/javascript" src="scripts/expChart.js"></script>
+</body>
+</html>
