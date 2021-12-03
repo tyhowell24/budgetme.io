@@ -45,15 +45,15 @@ label {
 	width: 150px;
 	vertical-align: top;
 	position:relative;
-    top:30%; 
-    left:30%;
+    top:20%; 
+    left:20%;
 }
 
 input {
 	font-size: inherit;
 	position:relative;
-    top:25%; 
-    left:25%;
+    top:20%; 
+    left:20%;
 }
 
 button {
