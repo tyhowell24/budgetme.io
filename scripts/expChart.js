@@ -1,6 +1,6 @@
 /*
 	Author: Tyler Howell
-	Date: 12/2/2021
+	Last Updated: 12/5/2021
 	Project: BudgetMe JavaScript Document
 	Filename expChart.js
 */
@@ -109,6 +109,7 @@ function validateForm() {
 // Sets the y-axis scales to a number that is 1000 more then the users income
 function updateChart(income, house, food, trans, ent) {	
 	validateForm();
+
 	myChart.config.options.plugins.annotation.annotations.line1.value = income.value;
 	
 	// Adds the values for house, food, trans, and ent and creates a new value on the graph for total income
@@ -120,7 +121,9 @@ function updateChart(income, house, food, trans, ent) {
 	var tot = (h+f+t+e); 
 	
 	// Gathers all the values from the user and creates items for the dataset data array to push into graph
-	myChart.config.options.scales.y.max = Math.round(tot + 1000);
+	// Uses the monthly income to create the scales for the graph
+	var inc = parseInt(income.value)
+	myChart.config.options.scales.y.max = Math.round(inc + 1000);
 	myChart.config.data.datasets[0].data[0] = house.value;
 	myChart.config.data.datasets[0].data[1] = food.value;
 	myChart.config.data.datasets[0].data[2] = trans.value;
@@ -167,4 +170,8 @@ function clearData(updateChart) {
 		myChart.update();
 		alert("Form Data Deleted!");
 	}
+}
+
+function helpMe(){
+	alert("To use the BudgetMe Site:\n\n First: Insert your total monthly income into the text box marked Monthly Income.\n\n Second: Fill out the corresponding text boxes for your total monthly expenses.\n\n Third: Click the submit button to see the graph above populate with a breakdown of expenses, an added total of Expenses and where your monthly income fits in. \n\n Fourth: Hit the Analyze button to get advice tailored to bringing down the expense category that is the highest. \n\n Lastly: Hit the delete button if you would like to start over.")
 }
